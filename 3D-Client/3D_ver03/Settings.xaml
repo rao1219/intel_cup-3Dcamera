@@ -1,0 +1,231 @@
+﻿<Window x:Class="_3D_ver03.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings"
+        WindowState="Maximized">
+    <Window.Resources>
+        <ControlTemplate x:Key="GlassButton" TargetType="{x:Type Button}">
+            <ControlTemplate.Resources>
+                <Storyboard x:Key="Timeline1">
+                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                        <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+                <Storyboard x:Key="Timeline2">
+                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                        <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </ControlTemplate.Resources>
+            <Border BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                <Border x:Name="border" Background="#7F000000" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.507*"/>
+                            <RowDefinition Height="0.493*"/>
+                        </Grid.RowDefinitions>
+                        <Border Opacity="0" HorizontalAlignment="Stretch" x:Name="glow" Width="Auto" Grid.RowSpan="2" CornerRadius="4,4,4,4">
+                            <Border.Background>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1.702" ScaleY="2.243"/>
+                                            <SkewTransform AngleX="0" AngleY="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform X="-0.368" Y="-0.152"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Color="#B28DBDFF" Offset="0"/>
+                                    <GradientStop Color="#008DBDFF" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Grid.RowSpan="2"/>
+                        <Border HorizontalAlignment="Stretch" Margin="0,0,0,0" x:Name="shine" Width="Auto" CornerRadius="4,4,0,0">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.494,0.889" StartPoint="0.494,0.028">
+                                    <GradientStop Color="#99FFFFFF" Offset="0"/>
+                                    <GradientStop Color="#33FFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Opacity" TargetName="shine" Value="0.4"/>
+                    <Setter Property="Background" TargetName="border" Value="#CC000000"/>
+                    <Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource Timeline1}"/>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard x:Name="Timeline2_BeginStoryboard" Storyboard="{StaticResource Timeline2}"/>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Background/13145333_113526114001_2.jpg"/>
+    </Window.Background>
+    <Border BorderThickness="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="双肩间距(cm)：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Name="m_TxtBoxShouldersDistanceMin" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxShouldersDistanceMin_GotFocus" LostFocus="m_TxtBoxShouldersDistanceMin_LostFocus"/>
+                        <TextBlock Grid.Column="1" Text="&lt;x&lt;" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBox Grid.Column="2" Name="m_TxtBoxShouldersDistanceMax" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxShouldersDistanceMax_GotFocus" LostFocus="m_TxtBoxShouldersDistanceMax_LostFocus"/>
+                    </Grid>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="双肩宽度(cm)：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="m_TxtBoxShouldersWidth" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxShouldersWidth_GotFocus" LostFocus="m_TxtBoxShouldersWidth_LostFocus"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="头部角度（前后）(°)：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="x&lt;" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBox Grid.Column="1" Name="m_TxtBoxHeadAngleFrontNBack" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxHeadAngleFrontNBack_GotFocus" LostFocus="m_TxtBoxHeadAngleFrontNBack_LostFocus"/>
+                    </Grid>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="头部角度（左右）(°)：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Grid Grid.Row="3" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Name="m_TxtBoxHeadAngleLeftNRightMin" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxHeadAngleLeftNRightMin_GotFocus" LostFocus="m_TxtBoxHeadAngleLeftNRightMin_LostFocus"/>
+                        <TextBlock Grid.Column="1" Text="&lt;x&lt;" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBox Grid.Column="2" Name="m_TxtBoxHeadAngleLeftNRightMax" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxHeadAngleLeftNRightMax_GotFocus" LostFocus="m_TxtBoxHeadAngleLeftNRightMax_LostFocus"/>
+                    </Grid>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="腰部角度(°)：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Grid Grid.Row="4" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="x&lt;" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBox Grid.Column="1" Name="m_TxtBoxWaistAngle" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxWaistAngle_GotFocus" LostFocus="m_TxtBoxWaistAngle_LostFocus"/>
+                    </Grid>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="头侧面角度(°)：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Grid Grid.Row="5" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Name="m_TxtBoxHeadAngleSideMin" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxHeadAngleSideMin_GotFocus" LostFocus="m_TxtBoxHeadAngleSideMin_LostFocus"/>
+                        <TextBlock Grid.Column="1" Text="&lt;x&lt;" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBox Grid.Column="2" Name="m_TxtBoxHeadAngleSideMax" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxHeadAngleSideMax_GotFocus" LostFocus="m_TxtBoxHeadAngleSideMax_LostFocus"/>
+                    </Grid>
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="等待延时(s)：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" Name="m_TxtBoxTimer" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxTimer_GotFocus" LostFocus="m_TxtBoxTimer_LostFocus"/>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="设置时长(min)：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Grid.Column="1" Name="m_TxtBoxSetTime" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxSetTime_GotFocus" LostFocus="m_TxtBoxSetTime_LostFocus"/>
+                        <TextBlock Grid.Column="2" Text="错误警报延时()s：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Grid.Column="3" Name="m_TxtBoxSetWrongTime" VerticalAlignment="Center" FontSize="20" BorderBrush="Gray" BorderThickness="1" GotFocus="m_TxtBoxSetWrongTime_GotFocus" LostFocus="m_TxtBoxSetWrongTime_LostFocus"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="凤鸣提示音：" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                            <ListBox Grid.Row="3" Grid.Column="1" Name="m_LstBoxTune" SelectionChanged="m_LstBoxTuneSelectionChanged">
+                                <ListBoxItem Content="默认" FontSize="20"/>
+                                <ListBoxItem Content="提示音1" FontSize="20"/>
+                                <ListBoxItem Content="提示音2" FontSize="20"/>
+                                <ListBoxItem Content="提示音3" FontSize="20"/>
+                                <ListBoxItem Content="提示音4" FontSize="20"/>
+                                <ListBoxItem Content="提示音5" FontSize="20"/>
+                                <ListBoxItem Content="提示音6" FontSize="20"/>
+                                <ListBoxItem Content="提示音7" FontSize="20"/>
+                                <ListBoxItem Content="提示音8" FontSize="20"/>
+                                <ListBoxItem Content="提示音9" FontSize="20"/>
+                            </ListBox>
+                            <CheckBox Grid.Row="5" Grid.Column="0" Name="m_ChcBoxUseFile" Content="音频文件     " FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Click="m_ChcBoxUseFile_Click"/>
+                            <TextBox Grid.Row="5" Grid.Column="1" Name="m_TxtBoxTuneFile" IsEnabled="False" VerticalAlignment="Center" FontSize="20" GotFocus="m_TxtBoxTuneFile_GotFocus"/>
+                        </Grid>
+                        <CheckBox Grid.Row="1" Content="显示详细信息" Name="m_ChcBoxDetail" FontSize="20" Foreground="White" HorizontalAlignment="Left" IsChecked="False"/>
+                    </Grid>
+                </Grid>               
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Name="m_BtnDefault" Content="默认值" FontSize="30" BorderThickness="2" BorderBrush="White" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Click="m_BtnDefault_Click"/>
+                <Button Grid.Column="3" Name="m_BtnGoback" Content="返回" FontSize="30" BorderThickness="2" BorderBrush="White" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Click="m_BtnGoback_Click"/>
+                <Button Grid.Column="5" Name="m_BtnConfirm" Content="确定" FontSize="30" BorderThickness="2" BorderBrush="White" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Click="m_BtnConfirm_Click"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

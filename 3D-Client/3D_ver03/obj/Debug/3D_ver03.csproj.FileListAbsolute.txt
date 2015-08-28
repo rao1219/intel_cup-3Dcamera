@@ -1,0 +1,68 @@
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\3D_ver03.exe.config
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\3D_ver03.exe
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\3D_ver03.pdb
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\SharpGL.dll
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\SharpGL.SceneGraph.dll
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\SharpGL.WPF.dll
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\SharpGL.pdb
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\SharpGL.xml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\SharpGL.SceneGraph.pdb
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\SharpGL.SceneGraph.xml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\SharpGL.WPF.pdb
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\bin\Debug\SharpGL.WPF.xml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\MainWindow.baml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\Media.baml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\Resources\Button.baml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\Resources\Shared.baml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\Resources\Slider.baml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\Settings.baml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\App.baml
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\MainWindow.g.cs
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\Media.g.cs
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\Settings.g.cs
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\App.g.cs
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\3D_ver03_MarkupCompile.cache
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\3D_ver03.g.resources
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\_3D_ver03.Properties.Resources.resources
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\3D_ver03.csproj.GenerateResource.Cache
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\3D_ver03.exe
+c:\users\jason-pc\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\3D_ver03.pdb
+C:\Users\Jason-PC\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\CameraWindow.baml
+C:\Users\Jason-PC\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\CameraWindow.g.cs
+C:\Users\Jason-PC\documents\visual studio 2013\Projects\3D_ver03\3D_ver03\obj\Debug\3D_ver03.csprojResolveAssemblyReference.cache
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\3D_ver03.exe.config
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\3D_ver03.exe
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\3D_ver03.pdb
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\SharpGL.dll
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\SharpGL.SceneGraph.dll
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\SharpGL.WPF.dll
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\WPFCustomMessageBox.dll
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\SharpGL.pdb
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\SharpGL.xml
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\SharpGL.SceneGraph.pdb
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\SharpGL.SceneGraph.xml
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\SharpGL.WPF.pdb
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\SharpGL.WPF.xml
+D:\大创\2014\3D_ver03\3D_ver03\bin\Debug\WPFCustomMessageBox.xml
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\3D_ver03.csprojResolveAssemblyReference.cache
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\CameraWindow.baml
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\MainWindow.baml
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\Media.baml
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\Resources\Button.baml
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\Resources\Shared.baml
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\Resources\Slider.baml
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\Settings.baml
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\App.baml
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\CameraWindow.g.cs
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\MainWindow.g.cs
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\Media.g.cs
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\Settings.g.cs
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\App.g.cs
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\3D_ver03_Content.g.cs
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\3D_ver03_MarkupCompile.cache
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\3D_ver03.g.resources
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\_3D_ver03.Properties.Resources.resources
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\3D_ver03.csproj.GenerateResource.Cache
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\3D_ver03.exe
+D:\大创\2014\3D_ver03\3D_ver03\obj\Debug\3D_ver03.pdb
+D:\项目\interl杯\初赛作品-基于 3D 体感摄像头的坐姿监测及提醒系统 -\3D\3D-Client\3D_ver03\bin\Debug\3D_ver03.exe.config

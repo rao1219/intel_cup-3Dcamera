@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- 此为圆形按钮 -->
+    <Style x:Key="buttonprevTemplate" TargetType="Button" >
+        <!--修改模板属性-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <!--控件模板-->
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <!--按钮呈圆形-->
+                        <Ellipse x:Name="outerCircle" Width="35" Height="35">
+
+                        </Ellipse>
+
+                        <!--按钮内容-->
+                        <Border>
+                            <Image Height="30" Source="/Gallery;component/Images/prev.png"></Image>
+                        </Border>
+
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="buttonnextTemplate" TargetType="Button" >
+        <!--修改模板属性-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <!--控件模板-->
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <!--按钮呈圆形-->
+                        <Ellipse x:Name="outerCircle" Width="35" Height="35">
+
+                        </Ellipse>
+
+                        <!--按钮内容-->
+                        <Border>
+                            <Image Height="30" Source="/Gallery;component/Images/next.png"></Image>
+                        </Border>
+
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

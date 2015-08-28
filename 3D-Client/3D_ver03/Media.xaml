@@ -1,0 +1,122 @@
+﻿<Window x:Class="_3D_ver03.Media"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Media"
+        WindowState="Maximized"
+        Topmost="True"
+        Background="Black" Closed="Media_Closed">
+    <Window.Resources>
+        <!-- 此为圆形按钮 -->
+        <Style x:Key="playButtonTemplate" TargetType="Button" >
+            <!--修改模板属性-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <!--控件模板-->
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <!--按钮呈圆形-->
+                            <Ellipse x:Name="outerCircle"   Width="28" Height="28">
+                            </Ellipse>
+                            <!--按钮内容-->
+                            <Border Name="border"  >
+                                <Image  Name="playImage" Height="25" Source="/Images/play.png" MouseEnter="playImage_MouseEnter" MouseLeave="playImage_MouseLeave"></Image>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="pauseButtonTemplate" TargetType="Button" >
+            <!--修改模板属性-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <!--控件模板-->
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <!--按钮呈圆形-->
+                            <Ellipse x:Name="outerCircle" Width="28" Height="28">
+                            </Ellipse>
+                            <!--按钮内容-->
+                            <Border>
+                                <Image Height="20" Source="/Images/pause.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave"></Image>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="stopButtonTemplate" TargetType="Button" >
+            <!--修改模板属性-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <!--控件模板-->
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <!--按钮呈圆形-->
+                            <Ellipse x:Name="outerCircle" Width="28" Height="28">
+                            </Ellipse>
+                            <!--按钮内容-->
+                            <Border>
+                                <Image Height="20" Source="/Images/stop.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave"></Image>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SliderButtonStyle"
+         TargetType="{x:Type RepeatButton}">
+            <Setter Property="SnapsToDevicePixels"
+            Value="true" />
+            <Setter Property="OverridesDefaultStyle"
+            Value="true" />
+            <Setter Property="IsTabStop"
+            Value="false" />
+            <Setter Property="Focusable"
+            Value="false" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Border Background="Transparent" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <DockPanel Name="dockPanel1" >
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Height="20" Name="ProgressGrid">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                    <Slider Style="{StaticResource progressSlider}"  Name="playProgressSlider" ValueChanged="playProgressSlider_ValueChanged" PreviewMouseUp="playProgressSlider_PreviewMouseUp"  Height="18" Width="{Binding  ElementName=ProgressGrid,Path=ActualWidth}" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" Margin="4,0,0,0">
+                    <TextBlock  Foreground="Gray" Name="currentPositionTime" FontSize="10" />
+                    <TextBlock Foreground="Gray" FontSize="10" Name="videoAllTime"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2" >
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="60,0,0,10" >
+                    <Button Name="stop"  Margin="5,0,5,0"  Cursor="Hand" Style="{StaticResource stopButtonTemplate}" ToolTip="停止播放" Click="stop_Click"></Button>
+                    <Button  Name="play"  Cursor="Hand" Margin="5,0,5,0" Click="play_Click" Style="{StaticResource playButtonTemplate}" ToolTip="播放"/>
+                    <Button Name="pause"  Cursor="Hand" Content="暂停" Margin="5,0,5,0"  Style="{StaticResource pauseButtonTemplate}" Click="pause_Click" ToolTip="暂停"></Button>
+                    <Image Margin="30,0,8,0" Height="20" Source="/Images/volume.png" ></Image>
+                    <Slider Name="volumeSlider" Minimum="0" Maximum="1" Value="0.5"  VerticalAlignment="Center"  Style="{StaticResource VolSlider}"/>
+                </WrapPanel>
+            </Grid>
+        </Grid>
+
+        <Grid >
+            <MediaElement Name="videoScreenMediaElement" Source="Demo.mp4" ScrubbingEnabled="True"  LoadedBehavior="Manual"  Volume="{Binding ElementName=volumeSlider, Path=Value}"  MediaOpened="videoScreenMediaElement_MediaOpened" Margin="0,5,0,0" MediaEnded="videoScreenMediaElement_MediaEnded" />
+        </Grid>
+        <DockPanel.Triggers>
+        </DockPanel.Triggers>
+    </DockPanel>
+</Window>

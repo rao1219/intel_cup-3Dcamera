@@ -1,0 +1,13 @@
+config 31
+config 00
+config 10
+config 20
+config 30
+config 00
+config 00
+config 10
+config 10
+config 20
+config 20
+config 30
+config 30

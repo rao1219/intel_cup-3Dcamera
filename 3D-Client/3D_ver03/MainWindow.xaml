@@ -1,0 +1,179 @@
+﻿<Window x:Class="_3D_ver03.MainWindow"
+        x:Name="Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ToolKit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="3D"
+        WindowState="Maximized" KeyDown="Window_KeyDown">
+    <Window.Resources>
+        <ControlTemplate x:Key="GlassButton" TargetType="{x:Type Button}">
+            <ControlTemplate.Resources>
+                <Storyboard x:Key="Timeline1">
+                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                        <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+                <Storyboard x:Key="Timeline2">
+                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                        <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </ControlTemplate.Resources>
+            <Border BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                <Border x:Name="border" Background="#7F000000" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.507*"/>
+                            <RowDefinition Height="0.493*"/>
+                        </Grid.RowDefinitions>
+                        <Border Opacity="0" HorizontalAlignment="Stretch" x:Name="glow" Width="Auto" Grid.RowSpan="2" CornerRadius="4,4,4,4">
+                            <Border.Background>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1.702" ScaleY="2.243"/>
+                                            <SkewTransform AngleX="0" AngleY="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform X="-0.368" Y="-0.152"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Color="#B28DBDFF" Offset="0"/>
+                                    <GradientStop Color="#008DBDFF" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Grid.RowSpan="2"/>
+                        <Border HorizontalAlignment="Stretch" Margin="0,0,0,0" x:Name="shine" Width="Auto" CornerRadius="4,4,0,0">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.494,0.889" StartPoint="0.494,0.028">
+                                    <GradientStop Color="#99FFFFFF" Offset="0"/>
+                                    <GradientStop Color="#33FFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Opacity" TargetName="shine" Value="0.4"/>
+                    <Setter Property="Background" TargetName="border" Value="#CC000000"/>
+                    <Setter Property="Visibility" TargetName="glow" Value="Hidden"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource Timeline1}"/>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard x:Name="Timeline2_BeginStoryboard" Storyboard="{StaticResource Timeline2}"/>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Background/13145333_113526114001_2.jpg"/>
+    </Window.Background>
+    <Border BorderThickness="5">
+        <Grid Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="展示" FontSize="30" Foreground="White"/>
+                <Button Grid.Column="2" Name="m_BtnStartTimer" Content="开始计时" FontSize="28" BorderThickness="2" BorderBrush="White" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Height="40" VerticalAlignment="Top" Click="m_BtnStartTimer_Click"/>
+                <Button Grid.Column="4" Name="m_BtnActivateSideMonitor" Content="启动侧身监测" FontSize="28" BorderThickness="2" BorderBrush="White" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" HorizontalAlignment="Left" Width="184" Click="m_BtnActivateSideMonitor_Click"/>
+                <Button Grid.Column="6" Name="m_BtnHidePage" Content="隐藏画面" FontSize="28" BorderThickness="2" BorderBrush="White" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Click="m_BtnHidePage_Click"/>
+                <Button Grid.Column="8" Name="m_BtnMedia" Content="示例视频" FontSize="28" BorderThickness="2" BorderBrush="White" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Click="m_BtnMedia_Click"/>
+                <Button Grid.Column="10" Name="m_BtnSettings" Content="设置" FontSize="28" BorderThickness="2" BorderBrush="White" Foreground="#FFFFFFFF" Template="{DynamicResource GlassButton}" Click="m_BtnSettings_Click"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Name="m_GridCameraWindow"/>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="坐姿信息" FontSize="20" Foreground="White"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Name="m_TxtBlcWrongPosMessage" FontSize="40" Foreground="White" TextWrapping="Wrap"/>
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="坐姿状态" FontSize="20" Foreground="White"/>
+                        <TextBlock Grid.Row="1" Grid.Column="2" Name="m_TxtBlcPosState" FontSize="40" Foreground="White" TextWrapping="Wrap"/>
+                        <TextBlock Grid.Row="0" Grid.Column="4" Text="最远距离" FontSize="20" Foreground="White"/>
+                        <TextBlock Grid.Row="1" Grid.Column="4" Name="m_TxtFurthestDistance" FontSize="40" Foreground="White" TextWrapping="Wrap"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="1" Name="m_GridHiddenInfo" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="双肩间距" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Name="m_TxtBlcShouldersDistance" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Width="100"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="头部角度（前后）" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Name="m_TxtBlcHeadAngleFrontNBack" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="头部角度（左右）" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Name="m_TxtBlcHeadAngleLeftNRight" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="腰部角度" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="3" Grid.Column="2" Name="m_TxtBlcWaistAngle" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="头侧面角度" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="4" Grid.Column="2" Name="m_TxtBlcHeadAngleSide" FontSize="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="剩余时间" FontSize="15" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Grid Grid.Row="5" Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Name="HourArea" Grid.Column="0" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
+                        <TextBlock Text=":" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
+                        <TextBlock Name="MinuteArea" Grid.Column="2" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
+                        <TextBlock Text=":" Grid.Column="3" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
+                        <TextBlock  Name="SecondArea" Grid.Column="4" VerticalAlignment="Center" FontSize="15" Foreground="White"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
