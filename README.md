@@ -1,3 +1,3 @@
 # intel_cup-3Dcamera
 
-Very Simple openStack server
+A simple 3d camera system with C# client and openstack server 
